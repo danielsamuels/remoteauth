@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class User(models.Model):
 
     username = models.CharField(
@@ -10,3 +11,6 @@ class User(models.Model):
     rank = models.ForeignKey(
         'ranks.Rank',
     )
+
+    def __unicode__(self):
+        return self.username
