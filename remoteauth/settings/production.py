@@ -1,6 +1,6 @@
 # Django settings for remoteauth project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
