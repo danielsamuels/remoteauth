@@ -5,9 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'remoteauth.views.home', name='home'),
-    # url(r'^remoteauth/', include('remoteauth.foo.urls')),
+    url(r'^user/', include('remoteauth.apps.users.urls', namespace="users")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
