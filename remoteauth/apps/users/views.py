@@ -10,7 +10,7 @@ class UserView(TemplateView):
         context = super(UserView, self).get_context_data(**kwargs)
 
         import time
-        time.sleep(5)
+        time.sleep(50)
 
         username = self.kwargs['user']
 
