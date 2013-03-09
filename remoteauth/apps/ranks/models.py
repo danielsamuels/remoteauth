@@ -14,13 +14,6 @@ class Rank(models.Model):
         default=0
     )
 
-    description = models.CharField(
-        max_length=200,
-        default='',
-        blank=True,
-        null=True
-    )
-
     colour = models.CharField(
         max_length=1,
         default='F',
@@ -56,3 +49,16 @@ class Rank(models.Model):
 
     class Meta:
         ordering = ("price", "name",)
+
+
+class DescriptionLine(models.Model):
+
+    rank = models.ForeignKey(Rank)
+
+    text = models.CharField(
+        max_length=100,
+        blank=True,
+    )
+
+    def __unicode__(self):
+        return self.text
