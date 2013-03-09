@@ -23,19 +23,19 @@ def rank_listing(request):
 
 
 def rank_details(request, rank):
-    # try:
-    get_rank = Rank.objects.get(
-        name__iexact=rank,
-        purchasable=True,
-    )
+    try:
+        get_rank = Rank.objects.get(
+            name__iexact=rank,
+            purchasable=True,
+        )
 
-    rank = {
-        "name": get_rank.name,
-        "price": str(get_rank.price) if get_rank.price > 0.0 else 'Free',
-        "colour": get_rank.colour,
-        "description": [line.text for line in get_rank.descriptionline_set.all()]
-    }
-    # except:
-        # rank = False
+        rank = {
+            "name": get_rank.name,
+            "price": str(get_rank.price) if get_rank.price > 0.0 else 'Free',
+            "colour": get_rank.colour,
+            "description": [line.text for line in get_rank.descriptionline_set.all()]
+        }
+    except:
+        rank = False
 
     return HttpResponse(json.dumps(rank), content_type="application/json")
