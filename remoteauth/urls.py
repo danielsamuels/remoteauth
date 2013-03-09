@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^user/', include('remoteauth.apps.users.urls', namespace="users")),
+    url(r'^ranks/', include('remoteauth.apps.ranks.urls', namespace="ranks")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
