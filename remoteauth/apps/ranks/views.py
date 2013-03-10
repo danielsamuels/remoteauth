@@ -19,6 +19,10 @@ def rank_listing(request):
 
         rank_obj.append(rank_dict)
 
+    rank_obj = {
+        "ranks": rank_obj
+    }
+
     return HttpResponse(json.dumps(rank_obj), content_type="application/json")
 
 
@@ -33,7 +37,7 @@ def rank_details(request, rank):
             "name": get_rank.name,
             "price": str(get_rank.price) if get_rank.price > 0.0 else 'Free',
             "colour": get_rank.colour,
-            "description": [line.text for line in get_rank.descriptionline_set.all()]
+            "description": [{"text": line.text} for line in get_rank.descriptionline_set.all()]
         }
     except:
         rank = False
